@@ -13,6 +13,7 @@ def main():
      \/     \__, | \/  \/ \__,_|_|_|
             |___/                   
 
+        An excellent application!
         """)
 
     config.initial_conf()
