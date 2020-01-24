@@ -20,8 +20,16 @@ def get_tags():
     
 # download and set wallpaper
 def get_and_set():
-    download.download_wp(config.width, config.height, get_tags())
+    searchtags = get_tags()
+    download.download_wp(config.width, config.height, searchtags)
     set_wp()
+    while True:
+        user_input = input("Input Y to search again with the same tags. All other inputs will end.\n")
+        if user_input.lower() == "y":
+            download.download_wp(config.width, config.height, searchtags)
+            set_wp()
+        else:
+            break
 
 # set wallpaper to latest downloaded wallpaper
 def set_wp():
