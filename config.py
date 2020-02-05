@@ -12,10 +12,9 @@ wallpath = ''
 confpath = ''
 opsys = platform.system()
 
+# set paths
 
-# initial config 
-
-def initial_conf():
+def set_paths():
     try:
         global wallpath
         global confpath
@@ -26,6 +25,13 @@ def initial_conf():
         else:
             print("Incompitable OS - Exiting!")
             sys.exit(1)
+    except KeyboardInterrupt:
+        sys.exit(1)
+# initial config 
+
+def initial_conf():
+    try:
+        set_paths()
         
         print("Checking Wallpapers Path Exists:")
         check_path(wallpath)

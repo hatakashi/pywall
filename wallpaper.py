@@ -19,17 +19,20 @@ def get_tags():
     return tagsurl
     
 # download and set wallpaper
-def get_and_set():
-    searchtags = get_tags()
-    download.download_wp(config.width, config.height, searchtags)
-    set_wp()
-    while True:
-        user_input = input("Input Y to search again with the same tags. All other inputs will end.\n")
-        if user_input.lower() == "y":
-            download.download_wp(config.width, config.height, searchtags)
-            set_wp()
-        else:
-            break
+def get_and_set(collections):
+    if collections == True:
+        print("Collections, woo!")
+    else:
+        searchtags = get_tags()
+        download.download_wp(config.width, config.height, searchtags)
+        set_wp()
+        while True:
+            user_input = input("Input Y to search again with the same tags. All other inputs will end.\n")
+            if user_input.lower() == "y":
+                download.download_wp(config.width, config.height, searchtags)
+                set_wp()
+            else:
+                break
 
 # set wallpaper to latest downloaded wallpaper
 def set_wp():
